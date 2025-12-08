@@ -24,47 +24,51 @@ notebooks/EDA.ipynb
 main.py
 
 How to Run
+
 1. Setup
-python -m venv kidney_env
-kidney_env\Scripts\activate
-pip install -r requirements.txt
+   
+   python -m venv kidney_env
 
-2. Train the Model
+   kidney_env\Scripts\activate
+   
+   pip install -r requirements.txt
 
-python main.py
+3. Train the Model
+
+   python main.py
 
 4. Run the Web App
    
-streamlit run app/app.py
+   streamlit run app/app.py
 
 Features
 
-Clean modular structure
+   Clean modular structure
 
-Automated training pipeline
+   Automated training pipeline
 
-CNN model with saved weights
+   CNN model with saved weights
+   
+   Logging and exception handling
 
-Logging and exception handling
+   Single-image prediction pipeline
 
-Single-image prediction pipeline
-
-Streamlit interface for easy use
+   Streamlit interface for easy use
 
 Outputs
 
-kidney_model.h5
+   kidney_model.h5
 
-label_map.json
+   label_map.json
 
-metrics.txt
+   metrics.txt
 
 Preprocessed arrays in data/processed/
 
 Testing
 
-Run each component independently
+   Run each component independently
 
-Test full pipeline using main.py
+   Test full pipeline using main.py
 
-Test prediction with multiple images through Streamlit
+   Test prediction with multiple images through Streamlit
