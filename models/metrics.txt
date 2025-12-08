@@ -1,0 +1,8 @@
+{
+  "best_epoch": 10,
+  "val_loss": 0.34222151166044373,
+  "val_accuracy": 0.8908507223113965,
+  "test_loss": 0.35045899867756347,
+  "test_accuracy": 0.8972712680577849,
+  "epochs_ran": 10
+}

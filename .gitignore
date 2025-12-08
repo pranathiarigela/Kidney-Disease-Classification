@@ -1,0 +1,8 @@
+kidney_env/
+data/
+logs/
+__pycache__/
+*.pth
+*.pt
+*.h5
+*.log
