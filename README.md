@@ -1,17 +1,26 @@
 Kidney Disease Classification
 
 An end-to-end machine learning project that classifies kidney CT scan images into four categories: Normal, Cyst, Tumor and Stone.
+
 The system includes data pipelines, a trained CNN model and a Streamlit app for real-time predictions.
 
 Project Structure
-app/                    # Streamlit app
-data/raw/               # Original images
-data/processed/         # Preprocessed arrays + splits
-models/                 # Trained model + metrics
-src/components/         # Ingestion, preprocessing, training, evaluation
-src/pipeline/           # Training and prediction pipelines
-utils/                  # Logging, exceptions, helpers
+app/                          # Streamlit app
+
+data/raw/                     # Original images
+
+data/processed/               # Preprocessed arrays + splits
+
+models/                       # Trained model + metrics
+
+src/components/               # Ingestion, preprocessing, training, evaluation
+
+src/pipeline/                 # Training and prediction pipelines
+
+utils/                        # Logging, exceptions, helpers
+
 notebooks/EDA.ipynb
+
 main.py
 
 How to Run
@@ -21,9 +30,11 @@ kidney_env\Scripts\activate
 pip install -r requirements.txt
 
 2. Train the Model
+
 python main.py
 
-3. Run the Web App
+4. Run the Web App
+   
 streamlit run app/app.py
 
 Features
