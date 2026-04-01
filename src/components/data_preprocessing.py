@@ -76,6 +76,11 @@ class DataPreprocessing:
         for idx, (fp, lbl) in enumerate(records):
             try:
                 img = Image.open(fp).convert("RGB")
+
+                # simple augmentation (only for training)
+                if "train" in str(fp):
+                    if np.random.rand() > 0.5:
+                        img = img.transpose(Image.FLIP_LEFT_RIGHT)
                 img = img.resize(self.target_size, Image.BILINEAR)
                 arr = np.asarray(img, dtype=np.float32)
                 if self.normalize:

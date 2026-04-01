@@ -182,6 +182,12 @@ class ModelTrainer:
             num_classes = self._get_num_classes()
             train_loader, val_loader = self._prepare_dataloaders()
 
+            # 🔥 ADD THIS BLOCK RIGHT AFTER
+            X_train, y_train = self._load_numpy_data(self.X_train_path, self.y_train_path)
+
+            # Convert one-hot to labels if needed
+            if y_train.ndim == 2 and y_train.shape[1] > 1:
+                y_train = np.argmax(y_train, axis=1)
             # build model
             if self.use_tl:
                 try:
@@ -195,7 +201,13 @@ class ModelTrainer:
                 log_info("Using small CNN model")
 
             model = model.to(self.device)
-            criterion = nn.CrossEntropyLoss()
+            # Compute class weights from training labels
+            class_counts = np.bincount(y_train)
+            weights = sum(class_counts) / class_counts
+
+            weights = torch.tensor(weights, dtype=torch.float).to(self.device)
+
+            criterion = nn.CrossEntropyLoss(weight=weights)
             optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=self.lr)
 
             best_val_loss = float("inf")

@@ -105,6 +105,7 @@ class ModelEvaluation:
                 y_true, y_pred, target_names=[inv_map[i] for i in range(num_classes)],
                 output_dict=True
             )
+            print(classification_report(y_true, y_pred, target_names=[inv_map[i] for i in range(num_classes)]))
 
             conf_mat = confusion_matrix(y_true, y_pred)
 
